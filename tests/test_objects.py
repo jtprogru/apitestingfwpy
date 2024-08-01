@@ -1,6 +1,7 @@
 import pytest
 
 from endpoints.create_object import CreateObject
+from endpoints.delete_object import DeleteObject
 from endpoints.get_object import GetObject
 from endpoints.update_object import UpdateObject
 
@@ -56,3 +57,12 @@ def test_partial_update(object_id, payload_for_full_update):
     update_object_endpoint.check_hdd_size(
         payload_for_full_update["data"]["Hard disk size"]
     )
+
+
+def test_delete_object(object_id):
+    delete_object_endpoint = DeleteObject()
+    delete_object_endpoint.delete_object_by_id(object_id)
+    delete_object_endpoint.check_status_code_is_200ok()
+    get_object_endpoint = GetObject()
+    get_object_endpoint.get_object_by_id(object_id)
+    get_object_endpoint.check_status_code_is_404not_found()
