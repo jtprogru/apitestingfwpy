@@ -21,6 +21,22 @@ def payload_for_create():
 
 
 @pytest.fixture
+def payload_for_full_update():
+    """
+    Стандартный набор данных для полного обновления объекта.
+    """
+    return {
+        "name": "Apple MacBook Pro 14",
+        "data": {
+            "year": 2024,
+            "price": 5000.00,
+            "CPU model": "Apple M4 Max",
+            "Hard disk size": "8 TB",
+        },
+    }
+
+
+@pytest.fixture
 def object_id(payload_for_create):
     """
     Фикстура для получения ID созданного объекта и последующего удаления тестовых данных с использованием фреймворка.
