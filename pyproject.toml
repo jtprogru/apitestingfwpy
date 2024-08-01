@@ -11,6 +11,11 @@ python = "^3.12"
 requests = "^2.32.3"
 black = "^24.4.2"
 pytest = "^8.3.2"
+pylint = "^3.2.6"
+
+[tool.pylint.messages_control]
+disable = "W0246, C0114, R1711"
+max-line-length = 120
 
 [build-system]
 requires = ["poetry-core"]
