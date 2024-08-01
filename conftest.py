@@ -37,6 +37,19 @@ def payload_for_full_update():
 
 
 @pytest.fixture
+def payload_for_partially_update():
+    """
+    Стандартный набор данных для частичного обновления объекта.
+    """
+    return {
+        "data": {
+            "year": 2020,
+            "price": 2500.00,
+        },
+    }
+
+
+@pytest.fixture
 def object_id(payload_for_create):
     """
     Фикстура для получения ID созданного объекта и последующего удаления тестовых данных с использованием фреймворка.
