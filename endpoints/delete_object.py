@@ -17,7 +17,6 @@ class DeleteObject(BaseEndpoint):
         """
 
         self.response = requests.delete(
-            f"{self.base_url}/{object_id}",
+            url=f"{self.base_url}/{object_id}",
+            timeout=self.timeout,
         )
-
-        return

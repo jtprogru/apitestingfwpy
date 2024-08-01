@@ -17,11 +17,10 @@ class GetObject(BaseEndpoint):
         """
 
         self.response = requests.get(
-            f"{self.base_url}/{object_id}",
+            url=f"{self.base_url}/{object_id}",
+            timeout=self.timeout,
         )
         self.response_json = self.response.json()
-
-        return
 
     def check_status_code_is_404not_found(self) -> None:
         """

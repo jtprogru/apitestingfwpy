@@ -14,14 +14,11 @@ class CreateObject(BaseEndpoint):
     def create_new_object(self, payload: dict) -> None:
         """
         Метод для создания нового объекта.
-        :param payload:
-        :return:
         """
 
         self.response = requests.post(
-            f"{self.base_url}",
+            url=f"{self.base_url}",
             json=payload,
+            timeout=self.timeout,
         )
         self.response_json = self.response.json()
-
-        return
