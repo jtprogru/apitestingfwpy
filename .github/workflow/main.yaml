@@ -1,0 +1,30 @@
+name: Main
+
+on: [push]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-version: ["3.11", "3.12"]
+    steps:
+    - uses: actions/checkout@v4
+    - name: Set up Python ${{ matrix.python-version }}
+      uses: actions/setup-python@v3
+      with:
+        python-version: ${{ matrix.python-version }}
+    - name: Setup Poetry
+      uses: Gr1N/setup-poetry@v9
+      with:
+        # Poetry version to use, if version is not provided then latest stable version will be used
+        poetry-version: "1.8.3"
+    - name: Install dependencies
+      run: |
+        poetry install --no-root
+    - name: Analysing the code with pylint
+      run: |
+        poetry run pylint endpoints/*
+    - name: Run tests
+      run: |
+        poetry run pytest -v
