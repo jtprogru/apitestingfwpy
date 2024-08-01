@@ -5,10 +5,11 @@ from endpoints.delete_object import DeleteObject
 
 
 @pytest.fixture
-def payload_for_create():
+def payload_for_create() -> dict:
     """
     Стандартный набор данных для создания объекта.
     """
+
     return {
         "name": "Apple MacBook Pro 16",
         "data": {
@@ -21,10 +22,11 @@ def payload_for_create():
 
 
 @pytest.fixture
-def payload_for_full_update():
+def payload_for_full_update() -> dict:
     """
     Стандартный набор данных для полного обновления объекта.
     """
+
     return {
         "name": "Apple MacBook Pro 14",
         "data": {
@@ -37,10 +39,11 @@ def payload_for_full_update():
 
 
 @pytest.fixture
-def payload_for_partially_update():
+def payload_for_partially_update() -> dict:
     """
     Стандартный набор данных для частичного обновления объекта.
     """
+
     return {
         "data": {
             "year": 2020,
@@ -50,10 +53,11 @@ def payload_for_partially_update():
 
 
 @pytest.fixture
-def object_id(payload_for_create):
+def object_id(payload_for_create) -> str:
     """
     Фикстура для получения ID созданного объекта и последующего удаления тестовых данных с использованием фреймворка.
     """
+
     create_object_endpoint = CreateObject()
     create_object_endpoint.create_new_object(payload_for_create)
     object_id = create_object_endpoint.response_json["id"]
