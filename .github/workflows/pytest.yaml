@@ -1,4 +1,4 @@
-name: Main
+name: PyTest
 
 on: [push]
 
@@ -22,9 +22,6 @@ jobs:
     - name: Install dependencies
       run: |
         poetry install --no-root
-    - name: Analysing the code with pylint
-      run: |
-        poetry run pylint endpoints/*
     - name: Run tests
       run: |
         poetry run pytest -v

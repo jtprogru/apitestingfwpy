@@ -1,5 +1,8 @@
 # apitestingfwpy
 
+[![PyLint](https://github.com/jtprogru/apitestingfwpy/actions/workflows/pylint.yaml/badge.svg?branch=main)](https://github.com/jtprogru/apitestingfwpy/actions/workflows/pylint.yaml)
+[![PyTest](https://github.com/jtprogru/apitestingfwpy/actions/workflows/pytest.yaml/badge.svg?branch=main)](https://github.com/jtprogru/apitestingfwpy/actions/workflows/pytest.yaml)
+
 Данный репозиторий основан на [видео-уроке](https://youtu.be/_6ib59ddHnA).
 
 Простой фреймворк тестирования API https://restful-api.dev реализованный на Python 3.12 с использованием [PyTest](https://docs.pytest.org/en/stable/) и [Poetry](https://python-poetry.org).
