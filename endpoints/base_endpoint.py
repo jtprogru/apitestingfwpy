@@ -3,7 +3,7 @@ import requests
 
 class BaseEndpoint:
     """
-    Базовый класс для работы с API.
+    Базовый класс для работы с API https://api.restful-api.dev
     """
 
     def __init__(self) -> None:
