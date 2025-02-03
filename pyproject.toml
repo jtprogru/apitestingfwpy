@@ -1,22 +1,16 @@
-[tool.poetry]
+[project]
 name = "apitestingfwpy"
 version = "0.1.0"
-description = "Simple framework for testing API https://erstful-api.dev"
-authors = ["Michael Savin <jtprogru@gmail.com>"]
+description = "Add your description here"
 readme = "README.md"
-license = "LICENSE"
-
-[tool.poetry.dependencies]
-python = "^3.12"
-requests = "^2.32.3"
-black = "^24.4.2"
-pytest = "^8.3.2"
-pylint = "^3.2.6"
+requires-python = ">=3.13"
+dependencies = [
+    "black>=25.1.0",
+    "pylint>=3.3.4",
+    "pytest>=8.3.4",
+    "requests>=2.32.3",
+]
 
 [tool.pylint.messages_control]
 disable = "W0246, C0114, R1711"
 max-line-length = 120
-
-[build-system]
-requires = ["poetry-core"]
-build-backend = "poetry.core.masonry.api"

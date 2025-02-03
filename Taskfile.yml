@@ -1,0 +1,19 @@
+# https://taskfile.dev
+
+version: "3"
+
+tasks:
+  default:
+    cmds:
+      - task --list
+    silent: true
+
+  test:
+    desc: Run all tests
+    cmds:
+      - uv run pytest -vvv
+
+  install:
+    desc: Install all dependencies
+    cmds:
+      - uv sync
