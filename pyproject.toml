@@ -10,3 +10,7 @@ dependencies = [
     "pytest>=8.3.4",
     "requests>=2.32.3",
 ]
+
+[tool.pylint.messages_control]
+disable = "W0246, C0114, R1711"
+max-line-length = 120
