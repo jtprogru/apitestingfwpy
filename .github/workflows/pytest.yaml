@@ -5,12 +5,23 @@ on: [push]
 jobs:
   testing:
     runs-on: ubuntu-latest
+    env:
+      BASE_URL: http://127.0.0.1:8000/objects
     steps:
       - uses: actions/checkout@v4
       - name: Install uv
         uses: astral-sh/setup-uv@v5
       - name: Set up Python
         run: uv python install
-      - name: Analysing the code with pylint
+      - name: Install dependencies (default + dev + mock)
+        run: uv sync --group mock
+      - name: Start mock service
         run: |
-          uv run pytest -vvv
+          uv run --group mock uvicorn mock_service.main:app --host 0.0.0.0 --port 8000 &
+          echo $! > mock.pid
+          until curl -sf http://127.0.0.1:8000/health > /dev/null; do sleep 0.3; done
+      - name: Run tests against mock
+        run: uv run pytest -vvv
+      - name: Stop mock service
+        if: always()
+        run: kill "$(cat mock.pid)" || true
