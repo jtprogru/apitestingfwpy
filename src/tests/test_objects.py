@@ -1,5 +1,3 @@
-import pytest
-
 from endpoints.create_object import CreateObject
 from endpoints.delete_object import DeleteObject
 from endpoints.get_object import GetObject
@@ -50,7 +48,9 @@ def test_full_update_object(object_id, payload_for_full_update):
     )
 
 
-def test_partial_update_object(object_id, payload_for_full_update):
+def test_partial_update_object(
+    object_id, payload_for_create, payload_for_partially_update
+):
     """
     Test update object with specified id with partial payload.
     """
@@ -62,17 +62,17 @@ def test_partial_update_object(object_id, payload_for_full_update):
 
     update_object_endpoint = UpdateObject()
     update_object_endpoint.partial_update_object_by_id(
-        object_id, payload_for_full_update
+        object_id, payload_for_partially_update
     )
     update_object_endpoint.check_status_code_is_200ok()
 
-    update_object_endpoint.check_name(payload_for_full_update["name"])
-    update_object_endpoint.check_data_year(payload_for_full_update["data"]["year"])
-    update_object_endpoint.check_data_price(payload_for_full_update["data"]["price"])
-    update_object_endpoint.check_cpu_model(payload_for_full_update["data"]["CPU model"])
-    update_object_endpoint.check_hdd_size(
-        payload_for_full_update["data"]["Hard disk size"]
+    update_object_endpoint.check_name(payload_for_create["name"])
+    update_object_endpoint.check_data_year(payload_for_partially_update["data"]["year"])
+    update_object_endpoint.check_data_price(
+        payload_for_partially_update["data"]["price"]
     )
+    update_object_endpoint.check_cpu_model(payload_for_create["data"]["CPU model"])
+    update_object_endpoint.check_hdd_size(payload_for_create["data"]["Hard disk size"])
 
 
 def test_delete_object(object_id):
