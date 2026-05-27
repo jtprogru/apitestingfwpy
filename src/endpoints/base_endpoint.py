@@ -1,13 +1,19 @@
+import os
+
 import requests
+
+DEFAULT_BASE_URL = "https://api.restful-api.dev/objects"
 
 
 class BaseEndpoint:
     """
     Базовый класс для работы с API https://api.restful-api.dev
+    или совместимым моком (см. mock_service/). Целевой хост настраивается
+    через переменную окружения BASE_URL.
     """
 
     def __init__(self) -> None:
-        self.base_url: str = "https://api.restful-api.dev/objects"
+        self.base_url: str = os.environ.get("BASE_URL", DEFAULT_BASE_URL)
         self.response: requests.Response | None = None
         self.response_json: dict | None = None
         self.timeout: int = 15
