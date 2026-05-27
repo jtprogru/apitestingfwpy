@@ -5,12 +5,16 @@ description = "Add your description here"
 readme = "README.md"
 requires-python = ">=3.13"
 dependencies = [
-    "black>=25.1.0",
-    "pylint>=3.3.4",
-    "pytest>=8.3.4",
     "requests>=2.32.3",
 ]
 
+[dependency-groups]
+dev = [
+    "black>=25.1.0",
+    "pylint>=3.3.4",
+    "pytest>=8.3.4",
+]
+
 [tool.pylint.messages_control]
-disable = "W0246, C0114, R1711"
+disable = "C0114, R1711"
 max-line-length = 120
