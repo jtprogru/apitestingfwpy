@@ -8,9 +8,6 @@ class UpdateObject(BaseEndpoint):
     Класс для обновления объекта.
     """
 
-    def __init__(self) -> None:
-        super().__init__()
-
     def full_update_object_by_id(self, object_id: str, payload: dict) -> None:
         """
         Метод для полного обновления объекта по ID.

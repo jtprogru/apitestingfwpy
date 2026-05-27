@@ -8,9 +8,6 @@ class GetObject(BaseEndpoint):
     Класс для получения объекта по ID.
     """
 
-    def __init__(self) -> None:
-        super().__init__()
-
     def get_object_by_id(self, object_id: str) -> None:
         """
         Метод для получения объекта по ID.

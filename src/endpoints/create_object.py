@@ -8,9 +8,6 @@ class CreateObject(BaseEndpoint):
     Класс для создания нового объекта.
     """
 
-    def __init__(self) -> None:
-        super().__init__()
-
     def create_new_object(self, payload: dict) -> None:
         """
         Метод для создания нового объекта.
