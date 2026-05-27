@@ -16,5 +16,5 @@ dev = [
 ]
 
 [tool.pylint.messages_control]
-disable = "C0114, R1711"
+disable = "C0114, R1711, W0621"
 max-line-length = 120
