@@ -13,4 +13,4 @@ jobs:
         run: uv python install
       - name: Analysing the code with pylint
         run: |
-          uv run pylint src/endpoints/*
+          uv run pylint src/conftest.py src/endpoints src/tests
