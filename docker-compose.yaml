@@ -1,0 +1,16 @@
+services:
+  mock:
+    build: ./mock_service
+    container_name: apitestingfwpy-mock
+    ports:
+      - "8000:8000"
+    healthcheck:
+      test:
+        - "CMD"
+        - "python"
+        - "-c"
+        - "import urllib.request,sys; sys.exit(0 if urllib.request.urlopen('http://127.0.0.1:8000/health', timeout=2).status == 200 else 1)"
+      interval: 5s
+      timeout: 3s
+      retries: 10
+      start_period: 3s
