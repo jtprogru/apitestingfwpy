@@ -14,6 +14,10 @@ dev = [
     "pylint>=3.3.4",
     "pytest>=9.0.3",
 ]
+mock = [
+    "fastapi>=0.115.0",
+    "uvicorn[standard]>=0.32.0",
+]
 
 [tool.pylint.messages_control]
 disable = "C0114, R1711, W0621"
