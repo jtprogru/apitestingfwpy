@@ -35,13 +35,13 @@ cd apitestingfwpy
 2. Установить зависимости:
 
 ```shell
-task install
+make install
 ```
 
 3. Выполнить запуск всех тестов:
 
 ```shell
-task test
+make test
 ```
 
 ### Info
@@ -56,13 +56,13 @@ task test
 
 ```shell
 # Поднять мок локально (требует группу зависимостей `mock`):
-task mock
+make mock
 
 # В другом терминале — прогнать тесты против локального мока:
-task test:local
+make test-local
 
 # Или одной командой через Docker (сборка образа → старт → тесты → teardown):
-task test:docker
+make test-docker
 ```
 
 Мысли для тренировки навыка написания кода зафиксированы в отдельном файле – [TODOs](TODOs.md).
