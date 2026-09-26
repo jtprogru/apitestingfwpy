@@ -23,24 +23,18 @@ class BaseEndpoint:
         Проверка статус кода 200 OK.
         """
 
-        assert (
-            self.response.status_code == 200
-        ), f"Status code is {self.response.status_code}, expected 200 OK"
+        assert self.response.status_code == 200, f"Status code is {self.response.status_code}, expected 200 OK"
 
     def check_name(self, name: str) -> None:
         """
         Проверка имени объекта.
         """
 
-        assert (
-            self.response_json["name"] == name
-        ), f"Object Name is {self.response_json['name']}, expected {name}"
+        assert self.response_json["name"] == name, f"Object Name is {self.response_json['name']}, expected {name}"
 
     def check_object_id(self, object_id: str) -> None:
         """
         Проверка ID объекта.
         """
 
-        assert (
-            self.response_json["id"] == object_id
-        ), f"Object ID is {self.response_json['id']}, expected {object_id}"
+        assert self.response_json["id"] == object_id, f"Object ID is {self.response_json['id']}, expected {object_id}"
