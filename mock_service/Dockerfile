@@ -4,8 +4,8 @@ WORKDIR /app
 
 # Версии синхронизированы с [dependency-groups].mock в pyproject.toml.
 RUN pip install --no-cache-dir \
-        'fastapi>=0.115.0' \
-        'uvicorn[standard]>=0.32.0'
+        'fastapi>=0.141.1' \
+        'uvicorn[standard]>=0.54.0'
 
 COPY . ./mock_service
 
